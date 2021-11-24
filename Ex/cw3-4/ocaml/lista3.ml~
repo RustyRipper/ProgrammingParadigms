@@ -1,0 +1,9 @@
+(* Maciej Makara *)
+
+(*zadanie 2 a)*)
+let curry3 f1 x y z = f1(x,y,z);;
+let curry3_2 = function f2 -> function x-> function y-> function z -> f2(x,y,z);;
+
+(*zadanie 2 b)*)
+let uncurry3 f1(x,y,z) = f1 x y z;;
+let uncurry3_2 =  function f2 -> function (x,y,z) -> f2 x y z;;
