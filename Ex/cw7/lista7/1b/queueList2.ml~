@@ -1,0 +1,26 @@
+(* Maciej Makara*)
+(* zadanie 1b*)
+	type 'a t = 'a list * 'a list
+		
+    exception Empty of string
+    
+    let empty () = ([],[])
+
+    let enqueue (e, q) =
+      q @ [e]
+
+    let dequeue = function
+      | [] -> []
+      | h::t -> t
+
+    let first q = 
+	   match fst queue with 
+      | [] -> raise (Empty "module ListQueue2: first")
+      | h::t -> h
+
+    let isEmpty q =
+      fst q = []
+	  
+	let repair = function
+		| ([], endOfQueue) -> (List.rev endOfQueue, [])
+		| normalQueue -> normalQueue
