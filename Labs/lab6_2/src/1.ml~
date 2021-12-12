@@ -1,0 +1,20 @@
+type litera = zawiera | niezawiera ;;
+type dane_slow = Empty | Short of litera | Medium of litera | Long of litera;;
+
+
+
+let function1 xs x =
+  let rec fHelp ys accum=
+    match ys with
+      [] -> accum
+    | h::t ->let flag =String.contains( h)( x) in
+             if flag then let (xx:litera) = zawiera 
+             else let(xx:litera)=niezawiera in 
+             
+             if (String.length h)<=10 then fHelp(t)(Short(xx)::accum)
+             else if ( (String.length h)>10 && (String.length h)<=20) then fHelp (t) (Medium(xx)::accum)
+             else  fHelp( t) (Long(xx)::accum) in
+  fHelp(xs)([]);;
+
+function1 ["raz";"dwadziescia"] 'd';;
+
