@@ -1,6 +1,6 @@
 sealed trait BT[+A]
-  case object Empty extends BT[Nothing]
-  case class Node[+A](elem: A, left: BT[A], right: BT[A]) extends BT[A]
+case object Empty extends BT[Nothing]
+case class Node[+A](elem: A, left: BT[A], right: BT[A]) extends BT[A]
 
 
 val t = Node(List(1, 2, 3), Node(List(1, 2), Empty, Node(List(4, 3), Empty, Empty)), Empty)

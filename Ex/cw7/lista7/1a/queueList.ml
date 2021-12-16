@@ -14,7 +14,7 @@
       | h::t -> t
 
     let first = function
-      | [] -> raise (Empty "module ListQueue: first")
+      | [] -> raise (Empty "module queueList: first")
       | h::t -> h
 
     let isEmpty q =

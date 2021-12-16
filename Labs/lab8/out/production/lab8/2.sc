@@ -19,7 +19,7 @@ def checkGraph[A](tree: BT[A]): Boolean =
       xs match
         case Nil => false
         case h :: t => if accum.contains(h) then true
-                        else fHelp2(t, h :: accum)
+        else fHelp2(t, h :: accum)
 
     fHelp2(list, List())
 

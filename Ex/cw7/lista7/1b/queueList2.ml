@@ -4,19 +4,18 @@
 		
     exception Empty of string
     
-	let repair = function
-      | ([], revQ) -> (List.rev revQ, [])
-      | q -> q
-
-	
     let empty () = ([],[])
 
     let enqueue (y, q) =
-      repair(fst q, y::snd q)
+      match q with
+      | ([],[]) -> ([y],[])
+      | (list,revList) -> (list,y::revList)
 
-    let dequeue = function
-      | ([],_) -> ([],[])
-      | (_::t,yl) -> repair(t,yl)
+    let dequeue q=
+      match q with
+      | ([],[]) -> ([],[])
+      | (_::[],revList) -> (List.rev revList, [])
+      | (_::t,revList) -> (t,revList)
 
     let first q =
       match fst q with 
