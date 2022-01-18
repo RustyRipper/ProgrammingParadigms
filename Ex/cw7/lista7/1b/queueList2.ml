@@ -19,7 +19,7 @@
 
     let first q =
       match fst q with 
-      | [] -> raise (Empty "module ListQueue2: first")
+      | [] -> raise (Empty "module queueList2: first")
       | h::_ ->h
 
     let isEmpty q =

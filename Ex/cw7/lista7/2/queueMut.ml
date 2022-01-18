@@ -22,8 +22,8 @@ let enqueue(x, q) =
     end
                           
 let dequeue q =
-  if isEmpty q then ()
-  else q.f <- (q.f + 1) mod (Array.length q.array)
+  if not(isEmpty q) then q.f <- (q.f + 1) mod (Array.length q.array)
+   
 
 let first q =
   if isEmpty q then raise (Empty "empty queue")

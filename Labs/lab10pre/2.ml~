@@ -1,0 +1,36 @@
+let rec sumLines arrayOfArrays =
+   let rec sum(array, accum) =
+    match array with
+    | h::t -> sum(t,accum+h)
+    | _ -> accum in
+   
+   let rec fHelp(arrays, accum) =
+    match arrays with
+    | h::t -> fHelp(t, accum@[sum(Array.to_list h,0)])
+    | _ -> accum in
+ 
+  Array.of_list( fHelp(Array.to_list arrayOfArrays, []));;
+
+
+
+let array=Array.init 3 (function _ -> Array.make 3 2);;
+sumLines array;;
+let array2=[|[|1; 1; 1|]; [|2; 2; 2|]; [|3; 3; 3|]|];;
+sumLines array2;;
+
+
+let rec sumLinesI arrayOfArrays =
+  let array=Array.make (Array.length arrayOfArrays) 0 in
+  for i=1 to Array.length arrayOfArrays do
+    let sum=ref 0 in
+    for j=1 to Array.length arrayOfArrays.(i-1) do
+      sum:= !sum+ arrayOfArrays.(i-1).(j-1); 
+    done;
+    array.(i-1) <- !sum; 
+  done;
+  array;;
+
+let array3=Array.init 3 (function _ -> Array.make 3 2);;
+sumLinesI array3;;
+let array4=[|[|1; 1; 1|]; [|2; 2; 2|]; [|3; 3; 3|]|];;
+sumLinesI array4;;
